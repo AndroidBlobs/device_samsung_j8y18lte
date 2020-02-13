@@ -1,0 +1,66 @@
+
+#
+# HWUI_BUILD_PROPERTIES
+#
+ro.hwui.texture_cache_size=24
+ro.hwui.layer_cache_size=16
+ro.hwui.path_cache_size=4
+ro.hwui.texture_cache_flushrate=0.4
+ro.hwui.shape_cache_size=1
+ro.hwui.gradient_cache_size=0.5
+ro.hwui.drop_shadow_cache_size=2
+ro.hwui.r_buffer_cache_size=2
+ro.hwui.text_small_cache_width=1024
+ro.hwui.text_small_cache_height=512
+ro.hwui.text_large_cache_width=2048
+ro.hwui.text_large_cache_height=1024
+#
+# from device/samsung/j8y18lte/system.prop
+#
+#
+# system.prop for msm8953_64
+#
+
+ro.arch=msm8953_64
+#ro.kernel.qemu=1
+ro.kernel.qemu.gles=2
+persist.demo.hdmirotationlock=false
+
+#Enable DSDS
+#persist.radio.multisim.config=dsds
+
+#Enable S.LSI USB settings
+dev.usbsetting.embedded=on
+
+#Graphics properties
+debug.sf.enable_hwc_vds=1
+debug.sf.hw=0
+debug.sf.latch_unsignaled=1
+debug.egl.hw=0
+debug.gralloc.enable_fb_ubwc=1
+sdm.debug.disable_skip_validate=1
+sys.disable_ext_animation=1
+
+# Property to enable display default color mode
+vendor.display.enable_default_color_mode=1
+
+#network type
+ro.telephony.default_network=9
+
+#RILD debug level setting
+ro.debug_level=0x494d
+
+# Specify a vendor RIL and a device node
+rild.libpath=/system/lib64/libsec-ril.so
+rild.libargs=-d /dev/umts_ipc0
+
+# read DS/SS property
+import /efs/factory.prop
+ro.multisim.simslotcount=2
+
+#Phone early start enable flag
+sys.config.phone_start_early=true
+
+# Display Idle timeout
+sdm.idle_time=520
+#

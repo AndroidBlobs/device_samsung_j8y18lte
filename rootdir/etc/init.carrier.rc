@@ -1,0 +1,32 @@
+on post-fs-data
+
+#SystemFramework
+    chown system system /data/cache/backup
+    chmod 0711 /data/cache/backup
+    chown system system /data/cache/backup_stage
+    chmod 0711 /data/cache/backup_stage
+
+on boot
+
+# SSWAP
+    write /proc/sys/vm/swappiness 160
+
+# SSWAP
+service swapon /sbin/sswap -s -f 2048
+    class core
+    user root
+    group root
+    seclabel u:r:sswap:s0
+    oneshot
+
+# Remosaic daemon works with mm-camera daemon
+#service remosaic_daemon /vendor/bin/remosaic_daemon
+#    class core
+#    user camera
+#    group camera
+
+# Move 2 SD card
+service extSdUFSVold /system/bin/extSDCardServiceVold
+    class main
+    user system
+    group system mount radio net_bt sdcard_rw shell media media_rw
